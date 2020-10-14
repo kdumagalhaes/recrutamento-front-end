@@ -1,12 +1,16 @@
-import React from 'react'
-import {TopSearchInput} from './TopSearchStyles'
+import React from 'react';
+import { TopSearchInput } from './TopSearchStyles';
 
 const TopSearch = () => {
-    return (
-        <TopSearchInput placeholder="Pesquise pelo nome ou código do servidor...">
+  return (
+    <TopSearchInput
+      id="searchBar"
+      name="searchBar"
+      type="search"
+      placeholder="Pesquise pelo nome ou código do servidor..."
+      autoFocus
+    ></TopSearchInput>
+  );
+};
 
-        </TopSearchInput>
-    )
-}
-
-export default TopSearch
+export default TopSearch;

@@ -7,13 +7,6 @@ const ServersGrid = () => {
     return (
         <ServersGridSection>
             <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
-            <ServerCard/>
         </ServersGridSection>
     )
 }

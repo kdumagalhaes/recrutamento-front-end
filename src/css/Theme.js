@@ -2,12 +2,14 @@ export default {
     title: 'main',
 
     colors: {
-        color0: '#080808',
+        color0: '#1B2329',
         color1: '#474747',
-        color2: '#282828',
+        color2: '#38454F',
         color3: '#fff',
-        color4: '#3B3B3B',
-        color5: '#565656',
+        color4: '#212C33',
+        color5: '#8697CB',
+        color6: '#4BB543',
+        color7: '#cc0000',
     },
 
     transitions: {

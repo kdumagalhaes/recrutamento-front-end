@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const ServerCardDiv = styled.div`
   width: 100%;
-  max-width: 330px;
   height: auto;
   padding: 20px;
   background-color: ${({ theme }) => theme.colors.color2};
@@ -33,19 +32,26 @@ export const ServerCardStatus = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: flex-end;
 
   img {
     width: 100%;
     max-width: 100px;
+  }
+
+  .on {
+    width: 12px;
+    height: 12px;
+    background-color: ${({ theme }) => theme.colors.color6};
+    border-radius: 50px;
     margin-bottom: 15px;
   }
 
-  span {
-    font-weight: 700;
-    text-transform: uppercase;
-    font-size: 0.7rem;
-    padding: 5px;
-    background-color: ${({ theme }) => theme.colors.color4};
+  .off {
+    width: 12px;
+    height: 12px;
+    background-color: ${({ theme }) => theme.colors.color7};
     border-radius: 50px;
+    margin-bottom: 15px;
   }
 `;
