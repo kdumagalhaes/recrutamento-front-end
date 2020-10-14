@@ -6,7 +6,7 @@ export const ServersGridSection = styled.section`
   padding: 30px;
   display: grid;
   gap: 20px;
-  grid-template-columns: auto auto auto auto;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
 
   @media (max-width: 768px) {
     grid-template-columns: auto auto;

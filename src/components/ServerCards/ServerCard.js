@@ -6,9 +6,9 @@ import {
 } from './ServerCardStyles';
 
 import ServerSVG from '../../assets/servidores.svg';
+import axios from 'axios';
 
-const ServerCard = () => {
-  const [status, setStatus] = useState(true);
+const ServerCard = () => {  
   const [servers, setServer] = useState([]);
 
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
@@ -16,50 +16,37 @@ const ServerCard = () => {
     'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgxLCJpYXQiOjE2MDI2ODIyNjksImV4cCI6MzIwNTM2ODEzOH0.z4th2DLRutANTv19yNY1MQiGN1biuKMvSQWButoW3IQ';
 
   useEffect(() => {
-    async function fetchServers() {
-      const api = await (
-        await fetch(url, {
-          method: 'POST',
-          headers: {
-            Authorization: bearer,
-          },
-        })
-      ).json();
-      console.log(api);
-    }
-    fetchServers();
-  });
+    axios
+      .get(url, {
+        method: 'POST',
+        headers: {
+          Authorization: bearer,
+        },
+      })
+      .then((res) => {
+        setServer(res.data);
+      })
+      .catch((err) => console.log(err));
+  }, []);
 
-  // fetch(url, {
-  //   method: 'POST',
-  //   headers: {
-  //     'Authorization': bearer
-  //   }
-  // })
-  // .then(res => res)
-  // .then(data => console.log(data))
-  // .catch(err => console.log(err))
-
-  return (
-    // servers.map(server => (
-    <ServerCardDiv>
+  return servers.map((server) => (
+    <ServerCardDiv key={server.InstanceId}>
       <ServerCardInfo>
         <span>Nome:</span>
-        <p>ola</p>
+        <p>{server.Instance}</p>
         <span>RAM:</span>
         <p>589 MB</p>
         <span>IP:</span>
-        <p>170.80.70.161</p>
+        <p>{server.PublicIpAddress ? server.PublicIpAddress : 'No IP found'}</p>
         <span>Processador:</span>
-        <p>Intel XXX</p>
+        <p>{server.InstanceType}</p>
       </ServerCardInfo>
       <ServerCardStatus>
-        <span className={status ? 'on' : 'off'}></span>
+        <span className={server.InstanceState === "On" ? "on" : "off"}></span>
         <img src={ServerSVG} alt="Server" />
       </ServerCardStatus>
     </ServerCardDiv>
-    // ))
-  );
+  ));
 };
 
 export default ServerCard;
