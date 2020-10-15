@@ -1,9 +1,9 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { TopSearchInput } from './TopSearchStyles';
 
-const TopSearch = () => {
-  const [search, setSearch] = useState()
-  
+const TopSearch = ({ searchTerm, setSearchTerm }) => {
+  const handleChange = (e) => setSearchTerm(e.target.value);
+
   return (
     <TopSearchInput
       id="searchBar"
@@ -11,7 +11,8 @@ const TopSearch = () => {
       type="search"
       placeholder="Pesquise pelo nome ou código do servidor..."
       autoFocus
-      onChange={(e) => setSearch(e.target.value.toLowerCase())}
+      onChange={handleChange}
+      value={searchTerm}
     ></TopSearchInput>
   );
 };
