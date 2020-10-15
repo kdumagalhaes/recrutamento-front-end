@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from 'react';
+import React, { Fragment, useState, createContext } from 'react';
 import { Reset } from './css/Reset';
 import { ThemeProvider } from 'styled-components';
 import main from './css/Theme';
@@ -6,14 +6,18 @@ import main from './css/Theme';
 import TopMenu from './components/TopMenu/TopMenu';
 import ServersGrid from './components/ServersGrid/ServersGrid';
 
-function App() {
+export const SearchContext = createContext({});
+
+function App() { 
   const [searchTerm, setSearchTerm] = useState('');
 
   return (
     <Fragment>
       <ThemeProvider theme={main}>
-        <TopMenu searchTerm={searchTerm} setSearchTerm={setSearchTerm} />
-        <ServersGrid searchTerm={searchTerm} />
+        <SearchContext.Provider value={{searchTerm, setSearchTerm}}>
+          <TopMenu />
+          <ServersGrid/>
+        </SearchContext.Provider>
         <Reset />
       </ThemeProvider>
     </Fragment>

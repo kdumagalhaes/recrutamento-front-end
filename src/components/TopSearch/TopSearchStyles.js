@@ -7,7 +7,7 @@ export const TopSearchInput = styled.input`
   background-color: ${({ theme }) => theme.colors.color0};
   border: none;
   border-radius: ${({ theme }) => theme.borderRadius.radius1};
-  padding-left: 15px;
+  padding: 0 15px;
   color: ${({ theme }) => theme.colors.color3};
   margin-left: 20px;
 

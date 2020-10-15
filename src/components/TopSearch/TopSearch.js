@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { TopSearchInput } from './TopSearchStyles';
 
-const TopSearch = ({ searchTerm, setSearchTerm }) => {
+import {SearchContext} from '../../App'
+
+const TopSearch = () => {
+  const {searchTerm, setSearchTerm} = useContext(SearchContext)
   const handleChange = (e) => setSearchTerm(e.target.value);
+  console.log(searchTerm)
 
   return (
     <TopSearchInput

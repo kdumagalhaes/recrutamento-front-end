@@ -3,10 +3,10 @@ import { ServersGridSection } from './ServersGridStyles';
 
 import ServerCard from '../ServerCards/ServerCard';
 
-const ServersGrid = ({ searchTerm }) => {
+const ServersGrid = () => {
   return (
     <ServersGridSection>
-      <ServerCard searchTerm={searchTerm} />
+      <ServerCard />
     </ServersGridSection>
   );
 };
