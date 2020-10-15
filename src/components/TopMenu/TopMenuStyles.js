@@ -10,6 +10,7 @@ export const TopMenuDiv = styled.div`
   align-items: center;
   box-shadow: ${({theme}) => theme.shadows.boxShadow2};
   position: fixed;
+  z-index: 2;
 
   @media(max-width: 411px) {
     padding: 20px;

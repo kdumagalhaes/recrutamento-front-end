@@ -10,6 +10,8 @@ export const ServerCardDiv = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
+  position: relative;
+
 `;
 
 export const ServerCardInfo = styled.div`
@@ -33,25 +35,28 @@ export const ServerCardStatus = styled.div`
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
+  height: auto;
 
   img {
     width: 100%;
     max-width: 100px;
   }
 
-  .on {
-    width: 12px;
-    height: 12px;
-    background-color: ${({ theme }) => theme.colors.color6};
-    border-radius: 50px;
-    margin-bottom: 15px;
-  }
-
+  .on,
   .off {
     width: 12px;
     height: 12px;
-    background-color: ${({ theme }) => theme.colors.color7};
     border-radius: 50px;
     margin-bottom: 15px;
+    position: absolute;
+    top: 20px;
+  }
+
+  .on {
+    background-color: ${({ theme }) => theme.colors.color6};
+  }
+
+  .off {
+    background-color: ${({ theme }) => theme.colors.color7};
   }
 `;
