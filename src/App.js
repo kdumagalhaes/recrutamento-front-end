@@ -8,6 +8,8 @@ import ServersGrid from './components/ServersGrid/ServersGrid';
 
 export const SearchContext = createContext({});
 
+const dotenv = require('dotenv').config()
+
 function App() { 
   const [searchTerm, setSearchTerm] = useState('');
 

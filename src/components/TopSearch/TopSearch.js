@@ -6,7 +6,6 @@ import {SearchContext} from '../../App'
 const TopSearch = () => {
   const {searchTerm, setSearchTerm} = useContext(SearchContext)
   const handleChange = (e) => setSearchTerm(e.target.value);
-  console.log(searchTerm)
 
   return (
     <TopSearchInput

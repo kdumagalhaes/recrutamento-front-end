@@ -9,20 +9,19 @@ import ServerSVG from '../../assets/servidores.svg';
 import axios from 'axios';
 import { SearchContext } from '../../App';
 
+const api_key = process.env.REACT_APP_API_KEY
+
 const ServerCard = () => {
   const { searchTerm } = useContext(SearchContext);
-  // console.log(searchTerm)
   const [servers, setServer] = useState([]);
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
-  const bearer =
-    'Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTgxLCJpYXQiOjE2MDI2ODIyNjksImV4cCI6MzIwNTM2ODEzOH0.z4th2DLRutANTv19yNY1MQiGN1biuKMvSQWButoW3IQ';
-
+  
   useEffect(() => {
     axios
       .get(url, {
         method: 'POST',
         headers: {
-          Authorization: bearer,
+          Authorization: api_key,
         },
       })
       .then((res) => {
