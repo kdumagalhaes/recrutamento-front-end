@@ -2,6 +2,7 @@ import React from 'react';
 import { InputTag } from './InputStyles';
 
 const Input = ({ maxWidth, placeholder, type, id, name, marginBottom }) => {
+
   return (
     <InputTag
       maxWidth={maxWidth}
@@ -10,6 +11,7 @@ const Input = ({ maxWidth, placeholder, type, id, name, marginBottom }) => {
       id={id}
       name={name}
       marginBottom={marginBottom}
+      required
     />
   );
 };

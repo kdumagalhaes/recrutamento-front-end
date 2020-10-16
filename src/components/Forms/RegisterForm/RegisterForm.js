@@ -5,6 +5,7 @@ import Input from '../Inputs/Input';
 import PrimaryButton from '../../Buttons/PrimaryButton/PrimaryButton';
 
 const RegisterForm = () => {
+
   return (
     <RegisterFormTag>
       <h2>Crie sua conta</h2>
@@ -15,7 +16,7 @@ const RegisterForm = () => {
         maxWidth="380px"
         placeholder="Insira seu e-mail..."
         type="email"
-        marginBottom="20px"
+        marginBottom="20px"        
       />
       <label>Senha</label>
       <Input
@@ -26,7 +27,7 @@ const RegisterForm = () => {
         type="password"
         marginBottom="20px"
       />
-      <PrimaryButton maxWidth="380px">Criar Conta</PrimaryButton>
+      <PrimaryButton type="submit" maxWidth="380px">Criar Conta</PrimaryButton>
       <h3>
         <a href="/login" alt="Esqueci minha senha">
           Fazer login
