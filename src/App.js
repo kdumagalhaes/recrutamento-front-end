@@ -1,25 +1,16 @@
-import React, { Fragment, useState, createContext } from 'react';
+import React, { Fragment } from 'react';
 import { Reset } from './css/Reset';
 import { ThemeProvider } from 'styled-components';
 import main from './css/Theme';
+import Routes from './route';
 
-import TopMenu from './components/TopMenu/TopMenu';
-import ServersGrid from './components/ServersGrid/ServersGrid';
+const dotenv = require('dotenv').config();
 
-export const SearchContext = createContext({});
-
-const dotenv = require('dotenv').config()
-
-function App() { 
-  const [searchTerm, setSearchTerm] = useState('');
-
+function App() {
   return (
     <Fragment>
       <ThemeProvider theme={main}>
-        <SearchContext.Provider value={{searchTerm, setSearchTerm}}>
-          <TopMenu />
-          <ServersGrid/>
-        </SearchContext.Provider>
+        <Routes />
         <Reset />
       </ThemeProvider>
     </Fragment>

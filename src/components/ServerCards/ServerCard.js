@@ -7,7 +7,7 @@ import {
 
 import ServerSVG from '../../assets/servidores.svg';
 import axios from 'axios';
-import { SearchContext } from '../../App';
+import { SearchContext } from '../../pages/Dashboard';
 
 const api_key = process.env.REACT_APP_API_KEY
 

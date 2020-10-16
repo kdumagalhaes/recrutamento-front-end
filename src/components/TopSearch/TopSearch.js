@@ -1,7 +1,7 @@
 import React, { useContext } from 'react';
 import { TopSearchInput } from './TopSearchStyles';
 
-import {SearchContext} from '../../App'
+import {SearchContext} from '../../pages/Dashboard'
 
 const TopSearch = () => {
   const {searchTerm, setSearchTerm} = useContext(SearchContext)
