@@ -4,6 +4,7 @@ import {
   ServerCardInfo,
   ServerCardStatus,
 } from './ServerCardStyles';
+import { trackPromise } from 'react-promise-tracker'
 
 import ServerSVG from '../../assets/servidores.svg';
 import axios from 'axios';
@@ -14,10 +15,11 @@ const api_key = process.env.REACT_APP_API_KEY
 const ServerCard = () => {
   const { searchTerm } = useContext(SearchContext);
   const [servers, setServer] = useState([]);
+
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
   
   useEffect(() => {
-    axios
+    trackPromise(axios
       .get(url, {
         method: 'POST',
         headers: {
@@ -27,7 +29,7 @@ const ServerCard = () => {
       .then((res) => {
         setServer(res.data);
       })
-      .catch((err) => console.log(err));
+      .catch((err) => console.log(err)))
   }, []);
 
   //pesquisa dos servidores
@@ -43,8 +45,8 @@ const ServerCard = () => {
       <ServerCardInfo>
         <span>Nome:</span>
         <p>{server.Instance}</p>
-        <span>RAM:</span>
-        <p>589 MB</p>
+        <span>Código:</span>
+        <p>{server.InstanceId}</p>
         <span>IP:</span>
         <p>{server.PublicIpAddress ? server.PublicIpAddress : 'No IP found'}</p>
         <span>Instância:</span>
