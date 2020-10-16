@@ -1,12 +1,12 @@
-import React, {Fragment } from 'react';
-import { FormTag } from './FormStyles';
+import React from 'react';
+import { LoginFormTag } from './LoginFormStyles';
 
 import Input from '../Inputs/Input';
 import PrimaryButton from '../../Buttons/PrimaryButton/PrimaryButton'
 
 const LoginForm = () => {
   return (
-    <FormTag>
+    <LoginFormTag>
       <h2>Faça o login</h2>
       <label>Email</label>
       <Input
@@ -30,7 +30,10 @@ const LoginForm = () => {
         Login
       </PrimaryButton>
       <a href="/" alt="Esqueci minha senha">Esqueci minha senha</a>
-    </FormTag>
+      <h3>
+      <a href="/register" alt="Esqueci minha senha">Criar minha conta</a>
+      </h3>
+    </LoginFormTag>
   );
 };
 

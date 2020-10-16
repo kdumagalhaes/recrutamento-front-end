@@ -1,6 +1,6 @@
 import styled from 'styled-components'
 
-export const FormTag = styled.form `
+export const LoginFormTag = styled.form `
     width: 100%;
     max-width: 500px;
     padding: 20px;
@@ -27,6 +27,14 @@ export const FormTag = styled.form `
 
         &:hover {
             color: ${({theme}) => theme.colors.color3};
+        }
+    }
+
+    h3 {
+        margin-top: 60px;
+
+        a {
+            text-decoration: none;
         }
     }
 `

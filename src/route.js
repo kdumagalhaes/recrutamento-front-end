@@ -3,6 +3,7 @@ import {BrowserRouter, Switch, Route} from 'react-router-dom'
 
 import Dashboard from './pages/Dashboard'
 import Login from './pages/Login/Login'
+import Register from './pages/Register/Register'
 
 export default function Routes() {
     return (
@@ -10,7 +11,7 @@ export default function Routes() {
         <Switch>
           <Route path="/" exact component={Dashboard} />
           <Route path="/login" exact component={Login} />
-          {/* <Route path="/register" exact component={RegisterPage} /> */}
+          <Route path="/register" exact component={Register} />
         </Switch>
       </BrowserRouter>
     );

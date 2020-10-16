@@ -1,4 +1,5 @@
 import React, { Fragment, useState, createContext } from 'react';
+import {Helmet} from 'react-helmet'
 
 import TopMenu from '../components/TopMenu/TopMenu';
 import ServersGrid from '../components/ServersGrid/ServersGrid';
@@ -10,6 +11,9 @@ const Dashboard = () => {
 
   return (
     <Fragment>
+      <Helmet>
+        <title>nuvemWeb • Dashboard</title>
+      </Helmet>
       <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
         <TopMenu />
         <ServersGrid />

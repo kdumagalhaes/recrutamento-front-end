@@ -1,6 +1,6 @@
-import styled from 'styled-components';
+import styled from 'styled-components'
 
-export const LoginDiv = styled.div`
+export const RegisterDiv = styled.div `
   width: 100%;
   height: 100%;
   display: flex;
@@ -8,5 +8,5 @@ export const LoginDiv = styled.div`
   @media (max-width: 411px) {
         height: 100vh;
         justify-content: center;
-    }
-`;
+    }    
+`
