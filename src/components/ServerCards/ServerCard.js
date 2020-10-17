@@ -29,7 +29,7 @@ const ServerCard = () => {
       .then((res) => {
         setServer(res.data);
       })
-      .catch((err) => console.log(err)))
+      .catch((err) => console.error(err)))
   }, []);
 
   //pesquisa dos servidores

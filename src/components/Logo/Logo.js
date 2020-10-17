@@ -6,7 +6,7 @@ import LogoSVG from '../../assets/nuvemWeb.svg';
 const Logo = () => {
   return (
     <LogoH1>
-      <a href="/">
+      <a href="/dashboard">
         nuvemWeb
         <img src={LogoSVG} alt="logo nuvemWeb" />
       </a>

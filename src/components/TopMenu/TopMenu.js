@@ -5,12 +5,12 @@ import Logo from '../Logo/Logo';
 import TopSearch from '../TopSearch/TopSearch';
 import LogoutIcon from '../LogoutIcon/LogoutIcon';
 
-const TopMenu = () => {
+const TopMenu = ({setAuth}) => {
   return (
     <TopMenuDiv>
       <Logo />
       <TopSearch />
-      <LogoutIcon />
+      <LogoutIcon setAuth={setAuth} />
     </TopMenuDiv>
   );
 };

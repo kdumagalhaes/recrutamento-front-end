@@ -1,15 +1,26 @@
 import React from 'react';
-import { LogoutIconDiv } from './LogoutIconStyles';
+import { LogoutIconBtn } from './LogoutIconStyles';
 
 import LogoutSVG from '../../assets/icon-logout.svg'
+import {toast} from 'react-toastify'
 
-const LogoutIcon = () => {
+const LogoutIcon = ({setAuth}) => {
+
+  const logout = async e => {
+    e.preventDefault();
+    try {
+      localStorage.removeItem("token");
+      setAuth(false);
+      toast.success("Até mais! Logout com sucesso!");
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   return (
-    <LogoutIconDiv>
-      <a href="/login" alt="logout">
+    <LogoutIconBtn onClick={e => logout(e)}>
         <img src={LogoutSVG} alt="logout" />
-      </a>
-    </LogoutIconDiv>
+    </LogoutIconBtn>
   );
 };
 

@@ -1,37 +1,81 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { LoginFormTag } from './LoginFormStyles';
+import { toast } from "react-toastify";
+import {Link} from 'react-router-dom'
 
-import Input from '../Inputs/Input';
-import PrimaryButton from '../../Buttons/PrimaryButton/PrimaryButton'
+const LoginForm = ({ setAuth }) => {
+  const [inputs, setInputs] = useState({
+    email: '',
+    password: '',
+  });
 
-const LoginForm = () => {
+  const { email, password } = inputs;
+
+  const handleChange = (e) => {
+    setInputs({ ...inputs, [e.target.name]: e.target.value });
+  };
+
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      const body = { email, password };
+      const response = await fetch(
+        'http://localhost:3333/auth/login',
+        {
+          method: 'POST',
+          headers: {
+            'Content-type': 'application/json',
+          },
+          body: JSON.stringify(body),
+        }
+      );
+
+      const parseRes = await response.json();
+      
+      if (parseRes.token) {
+        localStorage.setItem("token", parseRes.token);
+        setAuth(true);
+        toast.success("Olá! Logado com sucesso!", {
+          position: toast.POSITION.CENTER
+        });
+      } else {
+        setAuth(false);
+        toast.error(parseRes);
+      }
+
+    } catch (err) {
+      console.error(err.message);
+    }
+  };
+
   return (
-    <LoginFormTag>
+    <LoginFormTag onSubmit={handleSubmit}>
       <h2>Faça o login</h2>
       <label>Email</label>
-      <Input
+      <input
         id="email"
         name="email"
-        maxWidth="380px"
         placeholder="Insira seu e-mail..."
         type="email"
-        marginBottom="20px"
+        value={email}
+        onChange={(e) => handleChange(e)}
       />
       <label>Senha</label>
-      <Input
+      <input
         id="password"
         name="password"
-        maxWidth="380px"
         placeholder="Insira sua senha..."
         type="password"
-        marginBottom="20px"
+        value={password}
+        onChange={(e) => handleChange(e)}
       />
-      <PrimaryButton maxWidth="380px">
+      <button type="submit">
         Login
-      </PrimaryButton>
-      <a href="/" alt="Esqueci minha senha">Esqueci minha senha</a>
+      </button>
       <h3>
-      <a href="/register" alt="Esqueci minha senha">Criar minha conta</a>
+        <Link to="/register" alt="Esqueci minha senha">
+          Criar conta
+        </Link>
       </h3>
     </LoginFormTag>
   );

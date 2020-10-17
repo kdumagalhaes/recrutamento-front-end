@@ -6,14 +6,14 @@ import SideImage from '../../components/SideImage/SideImage';
 import BackgroundImg from '../../assets/bg_login.png';
 import LoginForm from '../../components/Forms/LoginForm/LoginForm';
 
-const Login = () => {
+const Login = ({setAuth}) => {
   return (
     <LoginDiv>
       <Helmet>
         <title>nuvemWeb • Login</title>
       </Helmet>
       <SideImage backgroundImg={BackgroundImg} />
-      <LoginForm />
+      <LoginForm setAuth={setAuth}/>
     </LoginDiv>
   );
 };
