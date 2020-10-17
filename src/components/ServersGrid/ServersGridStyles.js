@@ -17,7 +17,7 @@ export const ServersGridSection = styled.section`
 
   @media (max-width: 411px) {
     grid-template-columns: none;
-    padding-top: 150px;
+    padding-top: 210px;
   }
 `;
 
