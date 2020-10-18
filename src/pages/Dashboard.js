@@ -6,7 +6,7 @@ import ServersGrid from '../components/ServersGrid/ServersGrid';
 
 export const SearchContext = createContext({});
 
-const Dashboard = ({setAuth}) => {
+const Dashboard = () => {
   const [searchTerm, setSearchTerm] = useState('');
 
 
@@ -16,7 +16,7 @@ const Dashboard = ({setAuth}) => {
         <title>nuvemWeb • Dashboard</title>
       </Helmet>
       <SearchContext.Provider value={{ searchTerm, setSearchTerm }}>
-        <TopMenu setAuth={setAuth} />
+        <TopMenu />
         <ServersGrid />
       </SearchContext.Provider>
     </Fragment>

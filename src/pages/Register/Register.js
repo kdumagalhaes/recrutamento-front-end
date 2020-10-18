@@ -6,14 +6,14 @@ import SideImage from '../../components/SideImage/SideImage';
 import BackgroundImg from '../../assets/bg_register.png';
 import RegisterForm from '../../components/Forms/RegisterForm/RegisterForm';
 
-const Register = ({ setAuth }) => {
+const Register = ( ) => {
   return (
     <RegisterDiv>
       <Helmet>
         <title>nuvemWeb • Registrar</title>
       </Helmet>
       <SideImage backgroundImg={BackgroundImg} />
-      <RegisterForm setAuth={setAuth} />
+      <RegisterForm />
     </RegisterDiv>
   );
 };

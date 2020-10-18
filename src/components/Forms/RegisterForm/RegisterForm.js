@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { RegisterFormTag } from './RegisterFormStyles';
 import { Link } from 'react-router-dom';
-import { toast } from 'react-toastify';
 
 const RegisterForm = ({ setAuth }) => {
   const [inputs, setInputs] = useState({
@@ -17,31 +16,6 @@ const RegisterForm = ({ setAuth }) => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
-    try {
-      const url = 'http://localhost:3333/auth/register';
-      const body = { email, password };
-
-      const response = await fetch(url, {
-        method: 'POST',
-        headers: {
-          'Content-type': 'application/json',
-        },
-        body: JSON.stringify(body)
-      });
-      const parseRes = await response.json();
-
-      if (parseRes.token) {
-        localStorage.setItem('token', parseRes.token);
-        setAuth(true);
-        toast.success('Usuário cadastrado com sucesso!');
-      } else {
-        setAuth(false);
-        toast.error(parseRes);
-      }
-    } catch (err) {
-      console.error(err.message);
-    }
   };
 
   return (
