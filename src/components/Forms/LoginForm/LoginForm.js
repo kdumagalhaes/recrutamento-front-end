@@ -1,6 +1,5 @@
 import React, { useState } from 'react';
 import { LoginFormTag } from './LoginFormStyles';
-import { toast } from "react-toastify";
 import {Link} from 'react-router-dom'
 
 const LoginForm = ({ setAuth }) => {
