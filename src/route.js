@@ -38,6 +38,9 @@ export default function Routes() {
   return (
     <BrowserRouter>
       <Switch>
+        <Route path='/' exact>
+          <Register/>
+        </Route>
         <Route
           path="/dashboard"
           exact

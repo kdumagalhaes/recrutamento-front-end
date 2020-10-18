@@ -7,7 +7,6 @@ import {
 import { trackPromise } from 'react-promise-tracker'
 
 import ServerSVG from '../../assets/servidores.svg';
-import axios from 'axios';
 import { SearchContext } from '../../pages/Dashboard';
 
 const api_key = process.env.REACT_APP_API_KEY
@@ -17,19 +16,31 @@ const ServerCard = () => {
   const [servers, setServer] = useState([]);
 
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
+
+  const fetchServers = async () => {
+    try {
+      const response = await fetch(
+        url,
+        {
+          method: 'GET',
+          headers: {
+            Authorization:'Bearer ' + api_key,
+          },
+        }
+      );
+
+      const servers = await response.json()
+      setServer(servers)
+      
+    } catch (err) {
+      console.error(err.message)
+    }
+  }
   
   useEffect(() => {
-    trackPromise(axios
-      .get(url, {
-        method: 'POST',
-        headers: {
-          Authorization: api_key,
-        },
-      })
-      .then((res) => {
-        setServer(res.data);
-      })
-      .catch((err) => console.error(err)))
+    trackPromise(
+      fetchServers()
+    )
   }, []);
 
   //pesquisa dos servidores
