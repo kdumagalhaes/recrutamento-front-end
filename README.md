@@ -29,3 +29,5 @@ npm install
 ```
 npm start
 ```
+### Requisitos:
+- Última versão do Node
