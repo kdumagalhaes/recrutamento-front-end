@@ -33,7 +33,7 @@ export default function Routes() {
 
   useEffect(() => {
     isAuth();
-  });
+  },[]);
 
   return (
     <BrowserRouter>
