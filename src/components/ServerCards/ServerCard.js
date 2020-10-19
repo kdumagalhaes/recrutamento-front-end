@@ -13,7 +13,7 @@ const api_key = process.env.REACT_APP_API_KEY
 
 const ServerCard = () => {
   const { searchTerm } = useContext(SearchContext);
-  const [servers, setServer] = useState([]);
+  const [serversInfo, setServer] = useState([]);
 
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
 
@@ -29,8 +29,8 @@ const ServerCard = () => {
         }
       );
 
-      const servers = await response.json()
-      setServer(servers)
+      const serversInfo = await response.json()
+      setServer(serversInfo)
       
     } catch (err) {
       console.error(err.message)
@@ -45,7 +45,7 @@ const ServerCard = () => {
 
   //pesquisa dos servidores
 
-  const filteredServers = servers.filter(
+  const filteredServers = serversInfo.filter(
     (server) =>
       server.Instance.toLowerCase().includes(searchTerm.toLowerCase()) ||
       server.InstanceId.includes(searchTerm.toLowerCase())
