@@ -5,6 +5,7 @@ import {
   ServerCardStatus,
 } from './ServerCardStyles';
 import { trackPromise } from 'react-promise-tracker'
+import axios from 'axios';
 
 import ServerSVG from '../../assets/servidores.svg';
 import { SearchContext } from '../../pages/Dashboard';
@@ -17,31 +18,22 @@ const ServerCard = () => {
 
   const url = 'https://recrutamento.alterdata.cloud/listaServidor';
 
-  const fetchServers = async () => {
-    try {
-      const response = await fetch(
-        url,
-        {
-          method: 'GET',
-          headers: {
-            Authorization:'Bearer ' + api_key,
-          },
-        }
-      );
-
-      const serversInfo = await response.json()
-      setServer(serversInfo)
-      
-    } catch (err) {
-      console.error(err.message)
-    }
-  }
-  
   useEffect(() => {
     trackPromise(
-      fetchServers()
+      axios
+      .get(url, {
+        method: 'POST',
+        headers: {
+          Authorization: api_key,
+        },
+      })
+      .then((res) => {
+        setServer(res.data);
+      })
+      .catch((err) => console.log(err))
     )
   }, []);
+
 
   //pesquisa dos servidores
 
