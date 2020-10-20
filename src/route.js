@@ -33,14 +33,23 @@ export default function Routes() {
 
   useEffect(() => {
     isAuth();
-  },[]);
+  }, []);
 
   return (
     <BrowserRouter>
       <Switch>
-        <Route path='/' exact>
-          <Login/>
-        </Route>
+        <Route
+          path="/"
+          exact
+          render={(props) =>
+            isAuthenticated ? (
+              <Dashboard {...props} setAuth={setAuth} />
+            ) : (
+              <Redirect to="/login" />
+            )
+          }
+        />
+
         <Route
           path="/dashboard"
           exact
@@ -75,7 +84,7 @@ export default function Routes() {
           }
         />
       </Switch>
-      <ToastContainer autoClose={1700}/>
+      <ToastContainer autoClose={1700} />
     </BrowserRouter>
   );
 }
